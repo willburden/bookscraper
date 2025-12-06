@@ -1,0 +1,11 @@
+[project]
+name = "demoscraper"
+version = "0.1.0"
+description = "Scrapes the practice data from toscrape.com"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "beautifulsoup4>=4.14.3",
+    "lxml>=6.0.2",
+    "requests>=2.32.5",
+]
