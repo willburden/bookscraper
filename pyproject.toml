@@ -1,5 +1,5 @@
 [project]
-name = "demoscraper"
+name = "bookscraper"
 version = "0.1.0"
 description = "Scrapes the practice data from toscrape.com"
 readme = "README.md"
