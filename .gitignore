@@ -1,1 +1,9 @@
+# Dependencies
 .venv/
+
+# Work files
+__pycache__/
+build/
+
+# Bundle artifacts
+dist/
