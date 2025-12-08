@@ -1,4 +1,4 @@
-# bookscraper
+# bookbrowser
 
 An interactive tool to browse the book library at https://books.toscrape.com, using web scraping techniques.
 
@@ -13,8 +13,8 @@ The documentation for uv has more detail on [managing Python versions](https://d
 ### Clone the project and install its dependencies
 
 ```bash
-git clone git@github.com:willburden/bookscraper.git
-cd bookscraper
+git clone git@github.com:willburden/bookbrowser.git
+cd bookbrowser
 uv sync
 ```
 
@@ -28,7 +28,7 @@ uv run src
 You can use [PyInstaller](https://pyinstaller.org) to bundle the project into a single, self-contained executable file. Check you have the [necessary system packages](https://pyinstaller.org/en/stable/requirements.html#pyinstaller-requirements) installed. Then:
 
 ```
-uv run pyinstaller bookscraper.spec
+uv run pyinstaller bookbrowser.spec
 ```
 
-This creates a file `dist/bookscraper`, which can be installed to an appropriate directory for your system.
+This creates a file `dist/bookbrowser`, which can be installed to an appropriate directory for your system.
