@@ -4,6 +4,25 @@ An interactive tool to browse the book library at https://books.toscrape.com, us
 
 ## Usage
 
+To run the tool, simply run:
+
+```
+bookbrowser
+```
+
+This will start the main menu. From there, you can enter one of the displayed command inputs
+(surrounded with square brackets, for example: `view [c]ategories`) and press enter.
+
+When a list is shown, for example:
+
+```
+[0] Book 1
+[1] Book 2
+[2] Book 3
+```
+
+You can enter the index number surrounded by square brackets to select a particular entry in the list.
+
 ## Development
 
 This project uses [uv](https://docs.astral.sh/uv/) to manage its dependencies. Start by [installing uv](https://docs.astral.sh/uv/getting-started/installation/) and checking you have an [appropriate Python version](./pyproject.toml).
@@ -13,7 +32,7 @@ The documentation for uv has more detail on [managing Python versions](https://d
 ### Clone the project and install its dependencies
 
 ```bash
-git clone git@github.com:willburden/bookbrowser.git
+git clone https://github.com/willburden/bookbrowser.git
 cd bookbrowser
 uv sync
 ```
