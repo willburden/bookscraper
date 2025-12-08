@@ -5,12 +5,15 @@ from typing import Callable, TypedDict, cast, override
 from bookbrowser.parse import BookPage, CataloguePage, UnexpectedMarkup, pence_to_price
 
 
+BASE_URL = "https://books.toscrape.com/index.html"
+
+
 def main():
     """Run the command-line interface."""
 
     print("Welcome to bookbrowser")
 
-    screen = MainMenu("https://books.toscrape.com/index.html")
+    screen = MainMenu(BASE_URL)
     old_screen = None # If the initial screen fails to parse, quit the app.
     
     while screen is not None:
@@ -296,7 +299,10 @@ class Browse(Screen):
 
     @command("view categories", "c")
     def view_categories(self, _inp: str) -> Screen:
-        return Categories(self.page)
+        if self.page.url == BASE_URL:
+            return Categories(self.page) # Reuse the current page if it's the homepage.
+        else:
+            return Categories(CataloguePage(BASE_URL))
 
 
 class BookDetails(Screen):
@@ -356,7 +362,10 @@ class Categories(Screen):
 
     @command("browse all books", "a")
     def browse_all(self, _inp: str) -> Screen:
-        return Browse(self.page)
+        if self.page.url == BASE_URL:
+            return Browse(self.page) # Reuse the current page if it's the homepage.
+        else:
+            return Browse(CataloguePage(BASE_URL))
 
 
 def print_list[T](values: list[T], repr: Callable[[T], object]):
