@@ -16,9 +16,9 @@ This will start the main menu. From there, you can enter one of the displayed co
 When a list is shown, for example:
 
 ```
-[0] Book 1
-[1] Book 2
-[2] Book 3
+[0] A book
+[1] Another book
+[2] A third book
 ```
 
 You can enter the index number surrounded by square brackets to select a particular entry in the list.
