@@ -2,7 +2,7 @@ import abc
 import functools
 from typing import Callable, TypedDict, cast, override
 
-from bookbrowser.parse import BookPage, CataloguePage, pence_to_price
+from bookbrowser.parse import BookPage, CataloguePage, UnexpectedMarkup, pence_to_price
 
 
 def main():
@@ -11,10 +11,17 @@ def main():
     print("Welcome to bookbrowser")
 
     screen = MainMenu("https://books.toscrape.com/index.html")
+    old_screen = None # If the initial screen fails to parse, quit the app.
     
     while screen is not None:
-        screen.print()
-        screen = screen.handle_command()
+        # If at any point the page fails to parse, we can revert
+        # to the previous screen and continue.
+        try:
+            screen.print()
+            (old_screen, screen) = (screen, screen.handle_command())
+        except UnexpectedMarkup as error:
+            print(error)
+            screen = old_screen
 
 
 class Screen(metaclass=abc.ABCMeta):

@@ -1,5 +1,5 @@
 from functools import cached_property
-from typing import cast
+from typing import cast, override
 from bs4 import BeautifulSoup, Tag
 from urllib.parse import urljoin
 
@@ -252,7 +252,9 @@ class CataloguePage:
 
 
 class UnexpectedMarkup(Exception):
-    pass
+    @override
+    def __str__(self) -> str:
+        return "Failed to parse the page due to unexpected markup"
 
 
 def expect[T](value: T | None) -> T:
